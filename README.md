@@ -10,9 +10,12 @@ This repository contains all the necessary information for setting up a test aut
 
 ## Dependencies
 
-- [Dependency 1](link/to/dependency1) - Version X.X.X
-- [Dependency 2](link/to/dependency2) - Version Y.Y.Y
-- [Dependency 3](link/to/dependency3) - Version Z.Z.Z
+- [junit](https://mvnrepository.com/artifact/junit/junit) - Version 4.13.2
+- [selenium](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java) - Version 4.16.1
+- [screenplay](https://mvnrepository.com/artifact/net.serenity-bdd/serenity-screenplay) - Version 4.1.0
+- [cucumber](https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber) - Version 4.1.0
+- [gradle](https://mvnrepository.com/artifact/net.serenity-bdd/serenity-gradle-plugi) - Version 2.4.34
+- [webdriver](https://mvnrepository.com/artifact/net.serenity-bdd/serenity-screenplay-webdriver) - Version 4.1.0
 
 Please make sure to install the above dependencies with the specified versions before setting up the project.
 
