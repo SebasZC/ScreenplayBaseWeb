@@ -1,0 +1,49 @@
+buildscript {
+    dependencies {
+        classpath('net.serenity-bdd:serenity-gradle-plugin:2.0.81')
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    // https://mvnrepository.com/artifact/junit/junit
+    testImplementation 'junit:junit:4.13.2'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation 'org.seleniumhq.selenium:selenium-java:4.16.1'
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-screenplay
+    implementation 'net.serenity-bdd:serenity-screenplay:4.1.0'
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber
+    testImplementation 'net.serenity-bdd:serenity-cucumber:4.1.0'
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-gradle-plugin
+    implementation 'net.serenity-bdd:serenity-gradle-plugin:2.4.34'
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-screenplay-webdriver
+    implementation 'net.serenity-bdd:serenity-screenplay-webdriver:4.1.0'
+
+    //Logs
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+    implementation 'org.apache.logging.log4j:log4j-core:2.23.1'
+    // https://mvnrepository.com/artifact/log4j/log4j
+    implementation 'log4j:log4j:1.2.17'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    testImplementation 'org.slf4j:slf4j-simple:2.0.12'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+test.finalizedBy(aggregate)
