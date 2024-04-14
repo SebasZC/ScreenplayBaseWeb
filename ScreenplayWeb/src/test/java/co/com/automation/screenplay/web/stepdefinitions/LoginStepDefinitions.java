@@ -7,7 +7,9 @@ import co.com.automation.screenplay.web.questions.ValidateUserName;
 import co.com.automation.screenplay.web.tasks.EnterCredentialLogin;
 import co.com.automation.screenplay.web.tasks.OpenPage;
 import co.com.automation.screenplay.web.utils.constants.AutomationConstants;
+import co.com.automation.screenplay.web.utils.constants.KillBrowser;
 import com.openhtmltopdf.util.Constants;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.And;
@@ -19,7 +21,9 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.BeforeEach;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -61,6 +65,11 @@ public class LoginStepDefinitions {
     @Then("^the user can see the message (.*)$")
     public void theUserCanSeeTheMessageWelcomeUser(String user) {
         OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(ValidateUserName.name(), Matchers.equalTo(user)));
+    }
+
+    @After
+    public void closeBrowser() throws IOException, InterruptedException {
+        KillBrowser.processes("chrome");
     }
 
 }
